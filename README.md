@@ -33,7 +33,7 @@ However, if you face any issue in building or running the project please run pod
   - This sample app require minimum iOS 12 and Xcode 10 to run.
   - This project also uses RxSwift which is added as a pod using CocoaPods.
 
-## What could more have been done.
+## What more could have been done.
 
 Due to sudden high priority work at the office, I could only give this project 3 days. If time would have permitted, I would have done the followings.
 
