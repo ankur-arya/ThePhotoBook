@@ -23,10 +23,25 @@ The project is segregated into three main layers.
   - Presentation: It contains presenters.
   - Application: It contains Views, Router, Network Manager, and Utils.
 
+## Get Started
+
+This project uses CocoaPods for dependency management. Please open the .xcworkspace in Xcode 10.0 or above. It should work right out of the box.
+However, if you face any issue in building or running the project please run pod install command.
+
 ## Dependencies
 
   - This sample app require minimum iOS 12 and Xcode 10 to run.
   - This project also uses RxSwift which is added as a pod using CocoaPods.
+
+## What could more have been done.
+
+Due to sudden high priority work at the office, I could only give this project 3 days. If time would have permitted, I would have done the followings.
+
+- Could have worked on UI/UX.
+- Could have added more animations.
+- Could have wrote unit test cases.
+- Could have done a lit better documentation.
+- Could have integrated more photo services.
 
 ## Screenshots
 
