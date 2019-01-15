@@ -50,11 +50,26 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L4l-v1-JdM">
                                                     <rect key="frame" x="0.0" y="75.999999999999986" width="414" height="183.66666666666663"/>
                                                 </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Liked" translatesAutoresizingMaskIntoConstraints="NO" id="8ZR-xS-dmS">
+                                                    <rect key="frame" x="360" y="205.66666666666666" width="46" height="46"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="46" id="8rt-xV-EeK"/>
+                                                        <constraint firstAttribute="width" constant="46" id="YhS-f8-uuh"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPv-4J-Uoh">
+                                                    <rect key="frame" x="360" y="205.66666666666666" width="46" height="46"/>
+                                                    <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="kgP-Eu-rqT" secondAttribute="trailing" constant="8" id="1hw-MS-kIS"/>
+                                                <constraint firstAttribute="bottom" secondItem="8ZR-xS-dmS" secondAttribute="bottom" constant="8" id="4zV-zq-bSU"/>
                                                 <constraint firstItem="L4l-v1-JdM" firstAttribute="leading" secondItem="yGU-ay-t7c" secondAttribute="leading" id="84j-Hp-Ysv"/>
+                                                <constraint firstItem="hPv-4J-Uoh" firstAttribute="top" secondItem="8ZR-xS-dmS" secondAttribute="top" id="GNv-vW-F2G"/>
                                                 <constraint firstAttribute="trailing" secondItem="L4l-v1-JdM" secondAttribute="trailing" id="JbE-up-jt5"/>
                                                 <constraint firstItem="WUP-7s-ayJ" firstAttribute="top" secondItem="yGU-ay-t7c" secondAttribute="top" constant="12" id="KsX-eg-d3i"/>
                                                 <constraint firstItem="xSn-ym-J0a" firstAttribute="leading" secondItem="WUP-7s-ayJ" secondAttribute="trailing" constant="8" id="PAw-dC-gKe"/>
@@ -63,14 +78,19 @@
                                                 <constraint firstItem="kgP-Eu-rqT" firstAttribute="bottom" secondItem="WUP-7s-ayJ" secondAttribute="bottom" constant="-8" id="YEg-nt-V9S"/>
                                                 <constraint firstItem="WUP-7s-ayJ" firstAttribute="leading" secondItem="yGU-ay-t7c" secondAttribute="leading" constant="12" id="cE9-iS-7DN"/>
                                                 <constraint firstItem="kgP-Eu-rqT" firstAttribute="leading" secondItem="WUP-7s-ayJ" secondAttribute="trailing" constant="8" id="f2t-F7-n1c"/>
+                                                <constraint firstItem="hPv-4J-Uoh" firstAttribute="trailing" secondItem="8ZR-xS-dmS" secondAttribute="trailing" id="ids-wu-dgo"/>
+                                                <constraint firstItem="hPv-4J-Uoh" firstAttribute="bottom" secondItem="8ZR-xS-dmS" secondAttribute="bottom" id="lsK-Hf-Fov"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xSn-ym-J0a" secondAttribute="trailing" constant="20" symbolic="YES" id="mGh-DB-mPh"/>
                                                 <constraint firstAttribute="bottom" secondItem="L4l-v1-JdM" secondAttribute="bottom" id="pl8-S0-Mb1"/>
+                                                <constraint firstAttribute="trailing" secondItem="8ZR-xS-dmS" secondAttribute="trailing" constant="8" id="ui2-7A-95l"/>
+                                                <constraint firstItem="hPv-4J-Uoh" firstAttribute="leading" secondItem="8ZR-xS-dmS" secondAttribute="leading" id="vRu-A5-81Z"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <outlet property="date" destination="kgP-Eu-rqT" id="8Ee-I5-9NS"/>
+                                            <outlet property="likes" destination="hPv-4J-Uoh" id="y3q-IY-t8w"/>
                                             <outlet property="name" destination="xSn-ym-J0a" id="a8K-Ls-2Os"/>
                                             <outlet property="photograph" destination="L4l-v1-JdM" id="5Hi-sm-IBM"/>
                                             <outlet property="userImage" destination="WUP-7s-ayJ" id="Phh-ih-fIY"/>
@@ -99,7 +119,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="992.79999999999995" y="26.53673163418291"/>
+            <point key="canvasLocation" x="992.75362318840587" y="26.086956521739133"/>
         </scene>
         <!--User Details View Controller-->
         <scene sceneID="Fk3-82-eyn">
@@ -265,15 +285,34 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Liked" translatesAutoresizingMaskIntoConstraints="NO" id="I5c-mr-WhN">
+                                        <rect key="frame" x="346" y="497.66666666666674" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="gQ4-Es-ICa"/>
+                                            <constraint firstAttribute="width" constant="60" id="wUq-M7-Vg4"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgh-Iz-dEL">
+                                        <rect key="frame" x="346" y="497.66666666666674" width="60" height="60"/>
+                                        <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="Tgh-Iz-dEL" firstAttribute="trailing" secondItem="I5c-mr-WhN" secondAttribute="trailing" id="0Iy-b4-h1N"/>
                                     <constraint firstAttribute="bottom" secondItem="bIg-9Q-RWl" secondAttribute="bottom" constant="8" id="2CE-ax-m6X"/>
                                     <constraint firstAttribute="trailing" secondItem="SdJ-eW-kLy" secondAttribute="trailing" id="32U-au-jMw"/>
+                                    <constraint firstAttribute="trailing" secondItem="I5c-mr-WhN" secondAttribute="trailing" constant="8" id="3q1-sZ-JlA"/>
+                                    <constraint firstItem="Tgh-Iz-dEL" firstAttribute="leading" secondItem="I5c-mr-WhN" secondAttribute="leading" id="9xk-e5-Yso"/>
                                     <constraint firstAttribute="trailing" secondItem="bIg-9Q-RWl" secondAttribute="trailing" constant="20" id="A9D-DS-CYA"/>
+                                    <constraint firstItem="I5c-mr-WhN" firstAttribute="bottom" secondItem="SdJ-eW-kLy" secondAttribute="bottom" constant="-8" id="BVk-KT-Kd1"/>
+                                    <constraint firstItem="Tgh-Iz-dEL" firstAttribute="bottom" secondItem="I5c-mr-WhN" secondAttribute="bottom" id="Euh-fT-GN1"/>
                                     <constraint firstItem="SdJ-eW-kLy" firstAttribute="top" secondItem="6Ot-MI-Dzy" secondAttribute="top" id="VvC-jF-K0n"/>
                                     <constraint firstItem="bIg-9Q-RWl" firstAttribute="top" secondItem="SdJ-eW-kLy" secondAttribute="bottom" constant="8" id="Yd4-n3-aFb"/>
                                     <constraint firstItem="bIg-9Q-RWl" firstAttribute="leading" secondItem="6Ot-MI-Dzy" secondAttribute="leading" constant="20" id="dRg-qt-rKh"/>
+                                    <constraint firstItem="Tgh-Iz-dEL" firstAttribute="top" secondItem="I5c-mr-WhN" secondAttribute="top" id="fs5-WC-umj"/>
                                     <constraint firstItem="SdJ-eW-kLy" firstAttribute="leading" secondItem="6Ot-MI-Dzy" secondAttribute="leading" id="mdT-rv-zid"/>
                                 </constraints>
                             </view>
@@ -347,6 +386,7 @@
                     </view>
                     <connections>
                         <outlet property="caption" destination="bIg-9Q-RWl" id="nEV-S9-9P1"/>
+                        <outlet property="likes" destination="Tgh-Iz-dEL" id="De4-Aj-6eh"/>
                         <outlet property="location" destination="iUQ-lM-TPq" id="3qI-f4-3Ne"/>
                         <outlet property="name" destination="jeu-vM-cqc" id="E9H-Us-zFP"/>
                         <outlet property="photographView" destination="SdJ-eW-kLy" id="9kW-DO-Yi5"/>
@@ -368,6 +408,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="22"/>
+                        </textAttributes>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="My Photo Book"/>
                         </userDefinedRuntimeAttributes>
@@ -382,4 +425,7 @@
             <point key="canvasLocation" x="53.600000000000001" y="26.53673163418291"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Liked" width="33" height="33"/>
+    </resources>
 </document>

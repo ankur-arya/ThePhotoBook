@@ -6,6 +6,7 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var userImage: UIImageView?
     @IBOutlet weak var name: UILabel?
     @IBOutlet weak var date: UILabel?
+    @IBOutlet weak var likes: UILabel?
     
     var imageModel: ImageModel?
     var feedViewController: FeedViewController?
@@ -29,6 +30,7 @@ class FeedTableViewCell: UITableViewCell {
         setupUserImage()
         setupPhotograph()
         date?.text = image.date
+        likes?.text = image.likes
         name?.text = image.user.name
         name?.isUserInteractionEnabled = true
         name?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(FeedTableViewCell.showUserDetails)))

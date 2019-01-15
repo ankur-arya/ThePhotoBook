@@ -8,6 +8,8 @@ class ImageDetailsViewController: BaseViewController {
     @IBOutlet weak var name: UILabel?
     @IBOutlet weak var userImage: UIImageView?
     @IBOutlet weak var caption: UILabel?
+    @IBOutlet weak var likes: UILabel?
+    
     var loader: Loader?
     var imageDetails: ImageModel?
     
@@ -26,17 +28,20 @@ class ImageDetailsViewController: BaseViewController {
     
     func setupView() {
         name?.text = imageDetails?.user.name
+        likes?.text = imageDetails?.likes
         location?.text = imageDetails?.user.location
         userName?.text = imageDetails?.user.username
+        loader = Loader(view: photographView, style: .whiteLarge)
         setImage(url: imageDetails?.user.profileImage, view: userImage)
         setImage(url: imageDetails?.photographLarge, view: photographView)
         userImage?.layer.cornerRadius = 50
         userImage?.clipsToBounds = true
         caption?.text = imageDetails?.caption
-        if let photoView = photographView {
-            loader = Loader(view: photoView, style: .whiteLarge)
-        }
-        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.view.layoutIfNeeded()
     }
     
     /// Get Image from URL and set to image view.
@@ -45,8 +50,8 @@ class ImageDetailsViewController: BaseViewController {
     ///   - url: url
     ///   - view: image view on which image needs to be set.
     func setImage(url: URL?, view: UIImageView?) {
-        view?.image = nil
         loader?.start()
+        view?.image = nil
         guard let imageUrl = url else {
             view?.image = UIImage(named: "PlaceHolderImage")
             loader?.stop()

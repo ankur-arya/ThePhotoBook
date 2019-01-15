@@ -26,7 +26,15 @@ class UserDetailsRouter: UserDetailsRouterProtocol {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let userDetailsViewController = storyboard.instantiateViewController(withIdentifier: "UserDetailsViewController") as? UserDetailsViewController {
             userDetailsViewController.user = model
-            navigationController.pushViewController(userDetailsViewController, animated: true)
+            
+            let transition:CATransition = CATransition()
+            transition.duration = 0.6
+            transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+            transition.type = CATransitionType.push
+            transition.subtype = CATransitionSubtype.fromRight
+            navigationController.view.layer.add(transition, forKey: kCATransition)
+            navigationController.pushViewController(userDetailsViewController, animated: false)
+            
         }
     }
 }

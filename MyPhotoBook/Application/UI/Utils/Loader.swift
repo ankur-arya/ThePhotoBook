@@ -9,7 +9,7 @@ class Loader {
     /// - Parameters:
     ///   - view: view on which loader needs to be displayed.
     ///   - style: loader style.
-    init(view: UIView, style: UIActivityIndicatorView.Style) {
+    init(view: UIView?, style: UIActivityIndicatorView.Style) {
         parentView = view
         activityIndicator = UIActivityIndicatorView(style: style)
         activityIndicator?.center = parentView?.center ?? CGPoint.zero

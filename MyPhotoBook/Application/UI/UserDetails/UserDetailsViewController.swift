@@ -19,7 +19,6 @@ class UserDetailsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = user?.name
-        setupView()
         if let userName = user?.username {
             fetchUserDetails(username: userName)
         }
@@ -40,7 +39,7 @@ class UserDetailsViewController: BaseViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.view.layoutIfNeeded()
-        setupView()
+        self.setupView()
     }
     
     /// Get Image from URL and set to image view.
@@ -69,7 +68,7 @@ class UserDetailsViewController: BaseViewController {
     ///
     /// - Parameter username: username for which details need to be fetched.
     private func fetchUserDetails(username: String) {
-        let params = ["per_page": "10"]
+        let params = ["per_page": "50"]
         let userRepo: UserRepo = UnsplashUserRepo()
         userDetailsPresenter = UserDetailsImpl(repo: userRepo)
         let myBusyScheduler = ConcurrentDispatchQueueScheduler(qos: .background)

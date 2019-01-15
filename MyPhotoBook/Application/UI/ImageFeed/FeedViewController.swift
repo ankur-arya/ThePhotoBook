@@ -28,8 +28,8 @@ class FeedViewController: BaseViewController {
     /// - Parameter page: page number for image feed.
     fileprivate func fetchFeed(_ page: String) {
         loader?.start()
-        let params = ["per_page": "10",
-                      "page": page, "orientation": "squarish"]
+        let params = ["per_page": "30",
+                      "page": page, "orientation": "landscape"]
         
         let imageRepo: ImageRepo = UnsplashImagesRepo()
         imageListPresenter = ImageListImpl(repo: imageRepo)
@@ -96,12 +96,16 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if let imagesCount = images?.count, indexPath.row == imagesCount - 1, currentPage < 10 {
-            currentPage += 1
-            fetchFeed("\(currentPage)")
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -500, 10, 0)
+                                                       cell.layer.transform = rotationTransform
+            cell.alpha = 0.5
+            UIView.animate(withDuration: 1.0) {
+            cell.layer.transform = CATransform3DIdentity
+                cell.alpha = 1.0
         }
     }
+
 }
 
 // MARK: - Image Animations
@@ -168,5 +172,5 @@ extension FeedViewController {
                 self.statusImageView?.alpha = 1
             })
         }
-    }  
+    }
 }
