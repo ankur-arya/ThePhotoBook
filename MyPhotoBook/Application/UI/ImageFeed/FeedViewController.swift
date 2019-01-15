@@ -13,6 +13,8 @@ class FeedViewController: BaseViewController {
     var loader: Loader?
     let cellIdentifier = "FeedTableViewCell"
     var images: [ImageModel]?
+    var lastContentOffset: CGFloat = 0.0
+    var isScrollingUp: Bool = false
     var imageListPresenter: ImageListPresenter?
     let disposeBag = CompositeDisposable()
     
@@ -71,7 +73,7 @@ class FeedViewController: BaseViewController {
     }
 }
 
-extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
+extension FeedViewController: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return images?.count ?? 0
     }
@@ -97,13 +99,19 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -500, 10, 0)
-                                                       cell.layer.transform = rotationTransform
-            cell.alpha = 0.5
-            UIView.animate(withDuration: 1.0) {
+        let direction: CGFloat = isScrollingUp ? -200 : 200
+        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, direction, 0)
+        cell.layer.transform = rotationTransform
+        cell.alpha = 0
+        UIView.animate(withDuration: 1.0) {
             cell.layer.transform = CATransform3DIdentity
-                cell.alpha = 1.0
+            cell.alpha = 1.0
         }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        isScrollingUp = self.lastContentOffset > scrollView.contentOffset.y
+        self.lastContentOffset = scrollView.contentOffset.y;
     }
 
 }

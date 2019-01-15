@@ -13,6 +13,8 @@ class UserDetailsViewController: BaseViewController {
     @IBOutlet weak var userName: UILabel?
     @IBOutlet weak var name: UILabel?
     @IBOutlet weak var userImage: UIImageView?
+    var lastContentOffset: CGFloat = 0.0
+    var isScrollingUp: Bool = false
     var userDetailsPresenter: UserDetailsPresenter?
     let disposeBag = CompositeDisposable()
     
@@ -92,7 +94,7 @@ class UserDetailsViewController: BaseViewController {
 }
 
 // MARK: - Extension for CollectionView
-extension UserDetailsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension UserDetailsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return user?.images?.count ?? 0
     }
@@ -109,5 +111,21 @@ extension UserDetailsViewController: UICollectionViewDelegate, UICollectionViewD
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (self.view.frame.width / 2) - 13, height: (self.view.frame.width / 2) - 10)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let direction: CGFloat = isScrollingUp ? -100 : 100
+        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, direction, 0)
+        cell.layer.transform = rotationTransform
+        cell.alpha = 0.5
+        UIView.animate(withDuration: 1.0) {
+            cell.layer.transform = CATransform3DIdentity
+            cell.alpha = 1.0
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        isScrollingUp = self.lastContentOffset > scrollView.contentOffset.y
+        self.lastContentOffset = scrollView.contentOffset.y;
     }
 }

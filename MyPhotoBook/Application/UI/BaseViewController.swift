@@ -17,7 +17,7 @@ class BaseViewController: UIViewController, CAAnimationDelegate {
         navigationController?.navigationBar.barTintColor = AppColors.navigationBar
         navigationController?.navigationBar.isTranslucent = type(of: self) == type(of: FeedViewController.self)
     }
-    
+
     /// To show alert on view controller if an api throws an error.
     ///
     /// - Parameter error: error object from network call.
