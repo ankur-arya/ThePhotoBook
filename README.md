@@ -33,16 +33,6 @@ However, if you face any issue in building or running the project please run pod
   - This sample app require minimum iOS 12 and Xcode 10 to run.
   - This project also uses RxSwift which is added as a pod using CocoaPods.
 
-## What more could have been done.
-
-Due to sudden high priority work at the office, I could only give this project 3 days. If time would have permitted, I would have done the followings.
-
-- Could have worked on UI/UX.
-- Could have added more animations.
-- Could have wrote unit test cases.
-- Could have done a lit better documentation.
-- Could have integrated more photo services.
-
 ## Screenshots
 
 ![ImageList](MyPhotoBook/Resources/ImageList.png)
