@@ -103,7 +103,7 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource, UIScro
         let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, direction, 0)
         cell.layer.transform = rotationTransform
         cell.alpha = 0
-        UIView.animate(withDuration: 1.0) {
+        UIView.animate(withDuration: 0.45) {
             cell.layer.transform = CATransform3DIdentity
             cell.alpha = 1.0
         }
@@ -149,9 +149,9 @@ extension FeedViewController {
             zoomImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(FeedViewController.zoomOut)))
             blackBackgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(FeedViewController.zoomOut)))
             
-            UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: { () -> Void in
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: { () -> Void in
                 
-                let height = (self.view.frame.width / startingFrame.width) * startingFrame.height
+                let height = (self.view.frame.width / startingFrame.width) * startingFrame.height * 2
                 
                 let y = self.view.frame.height / 2 - height / 2
                 
@@ -168,7 +168,7 @@ extension FeedViewController {
     
     @objc func zoomOut() {
         if let startingFrame = statusImageView?.superview?.convert(statusImageView?.frame ?? CGRect.zero, to: nil) {
-            UIView.animate(withDuration: 0.75, animations: { () -> Void in
+            UIView.animate(withDuration: 0.5, animations: { () -> Void in
                 self.zoomImageView.frame = startingFrame
                 self.blackBackgroundView.alpha = 0
                 self.navBarCoverView.alpha = 0

@@ -37,6 +37,16 @@ class ImageDetailsViewController: BaseViewController {
         userImage?.layer.cornerRadius = 50
         userImage?.clipsToBounds = true
         caption?.text = imageDetails?.caption
+        photographView?.isUserInteractionEnabled = true
+        photographView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(ImageDetailsViewController.fullScreen)))
+    }
+    
+    @objc func fullScreen() {
+        if let image = imageDetails {
+            let router = FullImagesRouter(viewController: self)
+            let presenter = FullImagesRouterPresenter(router: router, index: IndexPath(row: 0, section: 0))
+            presenter.showFullImages(for: [image], index: IndexPath(row: 0, section: 0))
+        }
     }
     
     override func viewDidLayoutSubviews() {

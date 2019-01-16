@@ -1,11 +1,11 @@
 import UIKit
 
-protocol ImageDetailsRouterProtocol {
-    func showImageDetails(for model: ImageModel)
+protocol FullImagesRouterProtocol {
+    func showFullImages(for model: [ImageModel], index: IndexPath)
 }
 
 /// Router class for image details.
-class ImageDetailsRouter: ImageDetailsRouterProtocol {
+class FullImagesRouter: FullImagesRouterProtocol {
     private var presentingViewController: UIViewController?
     
     /// Initializer
@@ -17,16 +17,17 @@ class ImageDetailsRouter: ImageDetailsRouterProtocol {
     
     /// Function to show image details view.
     ///
-    /// - Parameter model: ImageModel model
-    func showImageDetails(for model: ImageModel) {
+    /// - Parameter model: ImageModel models
+    func showFullImages(for model: [ImageModel], index: IndexPath) {
         guard let navigationController = presentingViewController?.navigationController else {
             assertionFailure("Navigation Controller not found.")
             return
         }
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let imageDetailsViewController = storyboard.instantiateViewController(withIdentifier: "ImageDetailsViewController") as? ImageDetailsViewController {
-            imageDetailsViewController.imageDetails = model
-            navigationController.pushViewController(imageDetailsViewController, animated: true)
+        if let fullImagesViewController = storyboard.instantiateViewController(withIdentifier: "FullImageViewController") as? FullImageViewController {
+            fullImagesViewController.images = model
+            fullImagesViewController.selectedIndex = index
+            navigationController.present(fullImagesViewController, animated: true, completion: nil)
         }
     }
 }

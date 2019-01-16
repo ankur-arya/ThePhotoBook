@@ -113,12 +113,20 @@ extension UserDetailsViewController: UICollectionViewDelegate, UICollectionViewD
         return CGSize(width: (self.view.frame.width / 2) - 13, height: (self.view.frame.width / 2) - 10)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let images = user?.images {
+            let router = FullImagesRouter(viewController: self)
+            let presenter = FullImagesRouterPresenter(router: router, index: indexPath)
+            presenter.showFullImages(for: images, index: indexPath)
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let direction: CGFloat = isScrollingUp ? -100 : 100
         let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, direction, 0)
         cell.layer.transform = rotationTransform
-        cell.alpha = 0.5
-        UIView.animate(withDuration: 1.0) {
+        cell.alpha = 0
+        UIView.animate(withDuration: 0.3) {
             cell.layer.transform = CATransform3DIdentity
             cell.alpha = 1.0
         }

@@ -38,6 +38,10 @@
 		A87CA3BF21EB7DBB00E6BCA4 /* UnsplashUserRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87CA3BE21EB7DBB00E6BCA4 /* UnsplashUserRepo.swift */; };
 		A87CA3C121EB8D9400E6BCA4 /* UserDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87CA3C021EB8D9400E6BCA4 /* UserDetailsRouter.swift */; };
 		A87CA3C321EB8DA800E6BCA4 /* UserDetailsRouterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87CA3C221EB8DA800E6BCA4 /* UserDetailsRouterPresenter.swift */; };
+		A8A4F02021EF914F00CB68A7 /* FullImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A4F01F21EF914F00CB68A7 /* FullImageViewController.swift */; };
+		A8A4F02321EF94E900CB68A7 /* FullImagesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A4F02221EF94E900CB68A7 /* FullImagesRouter.swift */; };
+		A8A4F02521EF950100CB68A7 /* FullImagesRouterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A4F02421EF950100CB68A7 /* FullImagesRouterPresenter.swift */; };
+		A8A4F02721EFAA4900CB68A7 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A4F02621EFAA4900CB68A7 /* Animation.swift */; };
 		A8AF0B3321E8D03100D3B440 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AF0B2C21E8D03100D3B440 /* NetworkManager.swift */; };
 		A8AF0B3421E8D03100D3B440 /* DataEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AF0B2D21E8D03100D3B440 /* DataEndpoint.swift */; };
 		A8AF0B3521E8D03100D3B440 /* HTTPRequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AF0B2E21E8D03100D3B440 /* HTTPRequestData.swift */; };
@@ -100,6 +104,10 @@
 		A87CA3BE21EB7DBB00E6BCA4 /* UnsplashUserRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashUserRepo.swift; sourceTree = "<group>"; };
 		A87CA3C021EB8D9400E6BCA4 /* UserDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsRouter.swift; sourceTree = "<group>"; };
 		A87CA3C221EB8DA800E6BCA4 /* UserDetailsRouterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsRouterPresenter.swift; sourceTree = "<group>"; };
+		A8A4F01F21EF914F00CB68A7 /* FullImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullImageViewController.swift; sourceTree = "<group>"; };
+		A8A4F02221EF94E900CB68A7 /* FullImagesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullImagesRouter.swift; sourceTree = "<group>"; };
+		A8A4F02421EF950100CB68A7 /* FullImagesRouterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullImagesRouterPresenter.swift; sourceTree = "<group>"; };
+		A8A4F02621EFAA4900CB68A7 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		A8AF0B2C21E8D03100D3B440 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A8AF0B2D21E8D03100D3B440 /* DataEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataEndpoint.swift; sourceTree = "<group>"; };
 		A8AF0B2E21E8D03100D3B440 /* HTTPRequestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequestData.swift; sourceTree = "<group>"; };
@@ -149,6 +157,7 @@
 			children = (
 				A87CA3A921EB5CE600E6BCA4 /* AppColors.swift */,
 				A81285D521ECC8E900C85CA5 /* Loader.swift */,
+				A8A4F02621EFAA4900CB68A7 /* Animation.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -278,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				A861CD1321E9EBDF002DF382 /* ImageDetailsViewController.swift */,
+				A8A4F01F21EF914F00CB68A7 /* FullImageViewController.swift */,
 			);
 			path = ImageDetails;
 			sourceTree = "<group>";
@@ -285,6 +295,7 @@
 		A861CD1521E9F3F0002DF382 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				A8A4F02121EF94B700CB68A7 /* Full Images */,
 				A81285D821ED0F6A00C85CA5 /* Image Details */,
 				A81285D921ED0F7600C85CA5 /* User Details */,
 			);
@@ -329,6 +340,15 @@
 				A8E4244221EBC083005402DF /* ImageCollectionViewCell.swift */,
 			);
 			path = UserDetails;
+			sourceTree = "<group>";
+		};
+		A8A4F02121EF94B700CB68A7 /* Full Images */ = {
+			isa = PBXGroup;
+			children = (
+				A8A4F02221EF94E900CB68A7 /* FullImagesRouter.swift */,
+				A8A4F02421EF950100CB68A7 /* FullImagesRouterPresenter.swift */,
+			);
+			path = "Full Images";
 			sourceTree = "<group>";
 		};
 		A8AF0B3C21E8E39200D3B440 /* ImageFeed */ = {
@@ -590,9 +610,11 @@
 				A87CA3AD21EB760100E6BCA4 /* UserDetailsViewController.swift in Sources */,
 				A8AF0B3B21E8D0C100D3B440 /* UnsplashData.swift in Sources */,
 				A87CA3B321EB77D900E6BCA4 /* UserRepo.swift in Sources */,
+				A8A4F02521EF950100CB68A7 /* FullImagesRouterPresenter.swift in Sources */,
 				A84C119121E77C620040B436 /* FeedViewController.swift in Sources */,
 				A87CA3AF21EB766400E6BCA4 /* User.swift in Sources */,
 				A8AF0B3621E8D03100D3B440 /* HTTPRequestType.swift in Sources */,
+				A8A4F02021EF914F00CB68A7 /* FullImageViewController.swift in Sources */,
 				A87CA3A821EB5CAE00E6BCA4 /* BaseViewController.swift in Sources */,
 				A84C118021E7717C0040B436 /* FetchImagesIntractor.swift in Sources */,
 				A87CA3B721EB785200E6BCA4 /* FetchUserImpl.swift in Sources */,
@@ -611,6 +633,7 @@
 				A87CA3A621EA032500E6BCA4 /* ModelsConverter.swift in Sources */,
 				A8AF0B3921E8D03100D3B440 /* HTTPError.swift in Sources */,
 				A861CD1821E9F3FE002DF382 /* ImageDetailsRouter.swift in Sources */,
+				A8A4F02321EF94E900CB68A7 /* FullImagesRouter.swift in Sources */,
 				A81285D621ECC8E900C85CA5 /* Loader.swift in Sources */,
 				A84C117E21E76F0B0040B436 /* ImageRepo.swift in Sources */,
 				A84C118F21E77ACF0040B436 /* UnsplashImagesRepo.swift in Sources */,
@@ -622,6 +645,7 @@
 				A84C118521E773D50040B436 /* ImageListPresenter.swift in Sources */,
 				A87CA3C321EB8DA800E6BCA4 /* UserDetailsRouterPresenter.swift in Sources */,
 				A8AF0B3421E8D03100D3B440 /* DataEndpoint.swift in Sources */,
+				A8A4F02721EFAA4900CB68A7 /* Animation.swift in Sources */,
 				A84C118721E7745E0040B436 /* ImageListImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -779,6 +803,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4CYMJA762C;
 				INFOPLIST_FILE = MyPhotoBook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -799,6 +824,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4CYMJA762C;
 				INFOPLIST_FILE = MyPhotoBook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
