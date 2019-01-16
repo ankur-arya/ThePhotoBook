@@ -15,7 +15,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
     /// - Parameters:
     ///   - url: url
     ///   - view: image view on which image needs to be set.
-    func setImage(url: URL?, view: UIImageView?) {
+    private func setImage(url: URL?, view: UIImageView?) {
         loader?.start()
         view?.image = nil
         guard let imageUrl = url else {

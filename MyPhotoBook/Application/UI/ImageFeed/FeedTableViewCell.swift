@@ -36,13 +36,13 @@ class FeedTableViewCell: UITableViewCell {
         name?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(FeedTableViewCell.showUserDetails)))
     }
     
-    func setupPhotograph() {
+    private func setupPhotograph() {
         photograph?.isUserInteractionEnabled = true
         photograph?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(FeedTableViewCell.animateImage)))
         setImage(url: imageModel?.photograph, view: photograph)
     }
     
-    func setupUserImage() {
+    private func setupUserImage() {
         userImage?.layer.cornerRadius = 25
         userImage?.clipsToBounds = true
         userImage?.isUserInteractionEnabled = true
@@ -55,7 +55,7 @@ class FeedTableViewCell: UITableViewCell {
     /// - Parameters:
     ///   - url: url
     ///   - view: image view on which image needs to be set.
-    func setImage(url: URL?, view: UIImageView?) {
+    private func setImage(url: URL?, view: UIImageView?) {
         view?.image = nil
         guard let imageUrl = url else {
             view?.image = UIImage(named: "PlaceHolderImage")

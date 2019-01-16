@@ -4,7 +4,7 @@ protocol FullImagesRouterProtocol {
     func showFullImages(for model: [ImageModel], index: IndexPath)
 }
 
-/// Router class for image details.
+/// Router class for full image.
 class FullImagesRouter: FullImagesRouterProtocol {
     private var presentingViewController: UIViewController?
     
@@ -15,10 +15,10 @@ class FullImagesRouter: FullImagesRouterProtocol {
         presentingViewController = viewController
     }
     
-    /// Function to show image details view.
+    /// Function to show full image view.
     ///
     /// - Parameter model: ImageModel models
-    func showFullImages(for model: [ImageModel], index: IndexPath) {
+    internal func showFullImages(for model: [ImageModel], index: IndexPath) {
         guard let navigationController = presentingViewController?.navigationController else {
             assertionFailure("Navigation Controller not found.")
             return

@@ -18,7 +18,7 @@ class ImageDetailsRouter: ImageDetailsRouterProtocol {
     /// Function to show image details view.
     ///
     /// - Parameter model: ImageModel model
-    func showImageDetails(for model: ImageModel) {
+    internal func showImageDetails(for model: ImageModel) {
         guard let navigationController = presentingViewController?.navigationController else {
             assertionFailure("Navigation Controller not found.")
             return

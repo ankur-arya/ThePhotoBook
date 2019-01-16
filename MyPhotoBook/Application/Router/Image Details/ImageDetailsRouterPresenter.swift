@@ -9,8 +9,8 @@ class ImageDetailsRouterPresenter: ImageDetailsRouterPresenterProtocol {
     
     /// Function to show image details view.
     ///
-    /// - Parameter model: feed data model
-    func showImageDetails(for model: ImageModel) {
+    /// - Parameter model: ImageModel
+    internal func showImageDetails(for model: ImageModel) {
         self.router?.showImageDetails(for: model)
     }
     

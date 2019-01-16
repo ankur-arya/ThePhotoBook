@@ -28,7 +28,7 @@ class FeedViewController: BaseViewController {
     /// Fetch Image Feed from API.
     ///
     /// - Parameter page: page number for image feed.
-    fileprivate func fetchFeed(_ page: String) {
+    private func fetchFeed(_ page: String) {
         loader?.start()
         let params = ["per_page": "30",
                       "page": page, "orientation": "landscape"]
@@ -58,7 +58,7 @@ class FeedViewController: BaseViewController {
     /// Push to user details.
     ///
     /// - Parameter user: user model.
-    func pushToUserDetails(user: UserModel) {
+    internal func pushToUserDetails(user: UserModel) {
         let router = UserDetailsRouter(viewController: self)
         let presenter = UserDetailsRouterPresenter(router: router)
         presenter.showUserDetails(for: user)
@@ -119,11 +119,14 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource, UIScro
 // MARK: - Image Animations
 extension FeedViewController {
     
-    func animateImageView(_ statusImageView: UIImageView) {
-        self.statusImageView = statusImageView
+    /// Animate cell image to full screen.
+    ///
+    /// - Parameter statusImageView: cell image.
+    func animateImageView(_ feedImageView: UIImageView) {
+        self.statusImageView = feedImageView
         
-        if let startingFrame = statusImageView.superview?.convert(statusImageView.frame, to: nil) {
-            statusImageView.alpha = 0
+        if let startingFrame = feedImageView.superview?.convert(feedImageView.frame, to: nil) {
+            feedImageView.alpha = 0
 
             blackBackgroundView.frame = self.view.frame
             blackBackgroundView.backgroundColor = UIColor.black
@@ -141,7 +144,7 @@ extension FeedViewController {
             zoomImageView.backgroundColor = UIColor.black
             zoomImageView.frame = startingFrame
             zoomImageView.isUserInteractionEnabled = true
-            zoomImageView.image = statusImageView.image
+            zoomImageView.image = feedImageView.image
             zoomImageView.contentMode = .scaleAspectFill
             zoomImageView.clipsToBounds = true
             view.addSubview(zoomImageView)

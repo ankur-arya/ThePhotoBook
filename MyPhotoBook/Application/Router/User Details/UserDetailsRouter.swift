@@ -4,7 +4,7 @@ protocol UserDetailsRouterProtocol {
     func showUserDetails(for model: UserModel)
 }
 
-/// Router class for image details.
+/// Router class for User details.
 class UserDetailsRouter: UserDetailsRouterProtocol {
     private var presentingViewController: UIViewController?
     
@@ -15,10 +15,10 @@ class UserDetailsRouter: UserDetailsRouterProtocol {
         presentingViewController = viewController
     }
     
-    /// Function to show image details view.
+    /// Function to show User details view.
     ///
-    /// - Parameter model: feeddata model
-    func showUserDetails(for model: UserModel) {
+    /// - Parameter model: UserModel.
+    internal func showUserDetails(for model: UserModel) {
         guard let navigationController = presentingViewController?.navigationController else {
             assertionFailure("Navigation Controller not found.")
             return

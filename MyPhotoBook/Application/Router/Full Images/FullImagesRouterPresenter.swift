@@ -4,13 +4,13 @@ protocol FullImagesRouterPresenterProtocol {
     func showFullImages(for model: [ImageModel], index: IndexPath)
 }
 
-/// Presenter class for image details router.
+/// Presenter class for full image router.
 class FullImagesRouterPresenter: FullImagesRouterPresenterProtocol {
     
-    /// Function to show image details view.
+    /// Function to show full image view.
     ///
-    /// - Parameter model: feed data model
-    func showFullImages(for model: [ImageModel], index: IndexPath) {
+    /// - Parameter model: ImageModel array
+    internal func showFullImages(for model: [ImageModel], index: IndexPath) {
         self.router?.showFullImages(for: model, index: index)
     }
     
@@ -18,7 +18,7 @@ class FullImagesRouterPresenter: FullImagesRouterPresenterProtocol {
     var index: IndexPath?
     /// Initializer
     ///
-    /// - Parameter router: image details router protocol.
+    /// - Parameter router: full image router protocol.
     init(router: FullImagesRouterProtocol, index: IndexPath) {
         self.router = router
         self.index = index

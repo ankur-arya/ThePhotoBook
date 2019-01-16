@@ -1,5 +1,6 @@
 import UIKit
 
+/// Base Pannable View Controller.
 class Pannable: UIViewController {
     var originalPoint: CGPoint = CGPoint.zero
     var currentPoints: CGPoint = CGPoint.zero
@@ -10,6 +11,9 @@ class Pannable: UIViewController {
         view.addGestureRecognizer(panGesture)
     }
     
+    /// Function to handle pan gestures.
+    ///
+    /// - Parameter panGesture: pan gesture.
     @objc func panGestureAction(_ panGesture: UIPanGestureRecognizer) {
         let translation = panGesture.translation(in: view)
         if panGesture.state == .began {

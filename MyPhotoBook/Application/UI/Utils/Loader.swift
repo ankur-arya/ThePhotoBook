@@ -17,13 +17,13 @@ class Loader {
     }
     
     /// To start showing loader.
-    func start() {
+    internal func start() {
         activityIndicator?.startAnimating()
         parentView?.addSubview(activityIndicator!)
     }
     
     /// To stop showing loader.
-    func stop() {
+    internal func stop() {
         activityIndicator?.stopAnimating()
         activityIndicator?.removeFromSuperview()
     }

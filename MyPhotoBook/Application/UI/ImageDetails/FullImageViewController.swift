@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Class to handle full image functionality.
 class FullImageViewController: Pannable {
     var images: [ImageModel]?
     var selectedIndex: IndexPath?
