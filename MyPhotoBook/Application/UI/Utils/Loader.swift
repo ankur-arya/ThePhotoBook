@@ -18,13 +18,19 @@ class Loader {
     
     /// To start showing loader.
     internal func start() {
-        activityIndicator?.startAnimating()
-        parentView?.addSubview(activityIndicator!)
+        DispatchQueue.main.async {
+            self.activityIndicator?.startAnimating()
+            if let activity = self.activityIndicator {
+                self.parentView?.addSubview(activity)
+            }
+        }
     }
     
     /// To stop showing loader.
     internal func stop() {
-        activityIndicator?.stopAnimating()
-        activityIndicator?.removeFromSuperview()
+        DispatchQueue.main.async {
+            self.activityIndicator?.stopAnimating()
+            self.activityIndicator?.removeFromSuperview()
+        }
     }
 }
